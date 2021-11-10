@@ -1,0 +1,79 @@
+/* https://fonts.google.com/ */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* sémecteurs de base */
+body{
+    /*background-color: rgb(156, 159, 163);
+    background-image: radial-gradient(#0e8,#7f5);
+    background-image: linear-gradient(#45a, #ec9b10);
+    background-image: url(../pics/soleil1.jpg); */
+    background: url(../pics/tree.png) no-repeat center bottom scroll, url(../pics/sunn.png) top right no-repeat fixed, linear-gradient(#45a, #ec9b10);
+
+}
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+#top { /* sélecteur d'id priority 100 */
+    color: cyan;
+}
+.blueText { /* sélecteur de CLASS : priority 10 */
+    color: rgb(0, 12, 49);
+}
+h1,h2,h3,h4{ /* sélecteur de TAG : priority */
+    color: lightseagreen;
+    font-family: 'Press Start 2P', sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-shadow: 0 0 10px orangered;
+}
+p {
+    text-align: justify;
+}
+p::first-letter{
+    font-size: 1rem;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+p::first-line{
+    text-indent: 5rem;
+}
+
+th,tr,td {
+    border: solid black 1px;
+}
+th,tfoot{
+    background-color: blue;
+    color: cornsilk;
+}
+table {
+    /*border: solid black 1px;*/
+    width: 100%;
+}tr:nth-of-type(even){ /* even */
+    background-color: white;
+}
+tr:nth-child(odd){ /* odd 2n */
+    background-color: grey;
+}
+tbody tr td:nth-of-type(3), tbody tr td:nth-of-type(4){
+    text-align:right;
+}
+tbody tr td:nth-of-type(3)::after, tbody tr td:nth-of-type(4)::after{
+    content:' k€';
+}
+tbody tr:hover{
+    background-color:rgb(23, 118, 206);
+    cursor: pointer;
+}
+table caption{
+    margin: 10px; /*all*/
+    margin: 10px 20px; /* top/bottom et right/left*/
+    margin: 10px 20px 30px ; /*top, right/left, bottom*/
+    margin: 10px 20px 30px 40px; /* top right bottom left */
+}
+/* sélecteurs hiérarchiques*/
+div img {
+    /*width: 300px;*/
+    height: 150px;
+}
+h1 {
+    text-decoration: underline;
+}

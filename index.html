@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insertion du code JavaScript</title>
+
+  <!-- <script>
+    //commentaire en javascript
+    /*
+      commentaire multi-ligne
+    */
+    alert("dans head");
+    // window.alert("dans head");
+  </script> -->
+</head>
+<body>
+  <noscript>JavaScript desactivé !</noscript>
+  <h1>Insertion du code JavaScript</h1>
+  <form name="formu" action="" method="get">
+    Pseudo : <input type="text" name="pseudo">
+  </form>
+  <script>
+    //commentaire monoligne en javascript
+    /*
+      commentaire multi-ligne
+    */
+    alert("dans body");
+    // window.alert("dans head");
+    //affiche l'objet champ de saisie (Input) ayant le nom "pseudo" se trouvant dans le formulaire "formu"
+    console.log(document.formu.pseudo)
+    //modifie la valeur du champ 
+    document.formu.pseudo.value = "toto";
+    //affiche la valeur du champ "pseudo"
+    console.log(document.formu.pseudo.value)
+
+    //utilisation de confirm()
+    var reponse = confirm ("veuillez confirmer la supression");
+    if(reponse){
+        alert("produit supprimé !");
+    }else{
+        alert("supression annulée !");
+    }
+//utilisation de prompt()
+var nombre = prompt("un nombre?" , 5);
+//convertir chaine de charactere en entier
+nombre = parseInt(nombre);//"12" -> 12 chaine de charactere en nombre
+if(nombre < 18){
+    console.log("vous etes mineur !");
+}
+//convertire chaine de charactere en booleen
+var bool = prompt("true or false");
+bool = new Boolean(bool);
+console.log(bool);
+console.log(nombre**2);
+  </script>
+  <script src="main.js"></script>
+  <script src="var.js"></script>
+</body>
+</html>
