@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="css/printer.css" media="print">
     <link rel="stylesheet" href="css/ecran640px.css" media="screen and (max-width:640px)">
 </head>
-<body class="back">
+<body class="back" onload="permute()">
     <div id="wrapper">
         <header id="header">
             <img src="pics/coffee-bean.svg" alt="tournelle web agency logo" id="logo">
             <h1 id="title">Tournelle Web Agency</h1>
             <canvas id="flag"></canvas>
+            <button onclick="modeNuit()">Mode Nuit</button>
         </header>
 
         <nav id="menu">
@@ -30,7 +31,7 @@
 
         <nav id="caroussel">
         <span id="left">&#9664;</span>
-        <img src="pics/slide1.jpg" alt="" id="slide" name="caroussel">
+        <img src="pics/slide1.jpg" alt="" id="slide" name="caroussel" onload="permute()">
         <span id="right">&#9654;</span>
         </nav> 
 
@@ -208,5 +209,6 @@
         </ul>
     </footer>
     <script src="js/main.js"></script>
+    <script src=""></script>
 </body>
 </html>
