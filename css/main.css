@@ -1,0 +1,228 @@
+/*FONT ET ANIMATION*/
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+@keyframes beat {
+    0%{
+        font-size: 2.5rem;
+        color: #000;
+    }
+    100%{
+        font-size: 5rem;
+        color:#a1d691;
+    }
+}
+
+
+/* VARIABLE CSS*/
+:root{
+    --hdr-height: 5rem;
+}
+/* RAZ */
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+}
+/* DOCUMENT */
+h1,h2,h3,h4{
+    font-family: 'Permanent Marker', Arial, Helvetica, sans-serif ;
+}
+.back {
+    background: url(../pics/backc.jpg);
+    background-size: cover;
+}
+
+#wrapper{
+    background-color: transparent;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+/* INDEX - EN-TETE*/
+#header{
+    height: var(--hdr-height);
+    /* margin: 1rem 0; */
+    margin-bottom: 2em;
+}
+
+#header>*{
+    float: left;
+    height: 100%;
+    text-align: center;
+}
+
+#logo, #flag{
+    width: 15%;
+}
+
+#title{
+    width: 70%;
+    line-height: var(--hdr-height);
+    font-size: calc(var(--hdr-height)/2);
+    animation: beat 7s infinite alternate both;
+}
+
+/*INDEX - MENU */
+#menu{
+    clear: both;
+    height: calc(var(--hdr-height)/2);
+    margin: 1rem 0;
+}
+
+#menu > .options{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#menu a {
+    text-decoration: none;
+    background-color: yellowgreen;
+    color: whitesmoke;
+    padding: .7rem;
+    border-radius: .5rem 0;
+    border: solid .25rem transparent;
+    transition: all .3s ease-in-out;
+}
+
+#menu a:hover{
+box-shadow: 0 0 3rem rgb(236, 5, 5);
+border: solid .25rem rgb(235, 136, 8)
+}
+
+
+/* INDEX CAROUSEL */
+#caroussel{
+    height: calc(var(--hdr-height)*2);
+    /* background-color: tomato; */
+    width: 80vw;
+    margin: 2rem auto;
+    display: flex;
+}
+
+#caroussel > * {
+     height: 100%;
+    display: inline-block;
+}
+
+#left, #right {
+    width: 10%;
+    font-size: 5rem;
+    line-height: calc(var(--hdr-height)*2);
+    text-align: center;
+    cursor: pointer;
+}
+
+#slide {
+    width: 80%;
+}
+
+/* INDEX TEAM MEMBER */
+#team{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+}
+#team .member {
+    text-align: center;
+    width: 8rem;
+    background-color: #5BD56F;
+    margin: 0.1rem;
+    padding: 1rem;
+    margin-bottom: 1px;
+}
+
+#team .member:nth-of-type(odd) img:hover{
+    transform: rotate(34deg);
+}
+#team .member:nth-of-type(even) img:hover{
+    transform: rotate(-39deg);
+}
+
+#team .member img {
+    border-radius: 5rem;
+    border: solid green;
+}
+
+.member:hover{
+    box-shadow: 0 0 2rem black;
+}
+
+#team .member:hover img{
+    transform: rotate(360deg);
+    transition: all 2s;
+    cursor: crosshair;
+}
+
+/* INDEX - RGPD */
+#rgpd{
+    background-color: rgb(231, 153, 9);
+    padding: 1rem;
+    box-shadow: 0 0 1 #000;
+    width: 20vw;
+    position:absolute;
+    left: 2.5rem;
+    bottom: 2.5rem;
+}
+#close{
+    position: absolute;
+    right: 1rem;
+    bottom: .5rem;
+}
+
+/* INDEX -GO TOP */
+
+#begin a{
+display: inline-block;
+background-color: greenyellow;
+font-size: 2rem;
+border-radius: 50%;
+width: 4vw;
+height: 4vw;
+text-align: center;
+position: relative;
+text-decoration: none;
+bottom: 2vw;
+left: 98vw;
+transition: all 1s ease-in-out 0.1s;
+}
+
+#begin a:hover{
+    transform: translate(-5vw);
+}
+
+/* INDEX - FOOTER */
+
+#footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #000;
+    color: white;
+    text-align: center;
+}
+
+#footer .footcontent{
+    list-style: none;
+    padding: 1rem 0;
+    width: calc(99/3);  
+}
+
+#footer .footcontent li:first-child{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Permanent Marker',Arial, Helvetica, sans-serif;
+}
+
+/* #footer .footcontent:not(:first-child){
+    border-left: floralwhite dotted .25rem;
+} */
+
+
+/* ACCES - CARTES */
+#map {
+    width: 100%;
+    height: 80vh;
+}

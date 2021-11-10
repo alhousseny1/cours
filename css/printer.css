@@ -1,0 +1,20 @@
+
+/* INDEX-HEADER */
+#logo, #flag, #menu, #caroussel, #footer, #rgpd, #begin, .member img{
+    display: none;
+}
+
+#title{
+    width: 100%;
+}
+#team{
+    display: initial;
+    text-align: left;
+}
+#team .member{
+    text-align: left;
+    width: 100%;
+    background-color: transparent;
+    padding: 0;
+    margin: .5rem 0;
+}

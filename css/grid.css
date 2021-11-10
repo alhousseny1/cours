@@ -1,0 +1,40 @@
+
+
+#container{
+    display: grid;
+    height: 100vh;
+    /* background-color: black; */
+    grid-template-rows: 15vh auto 10vh;
+    grid-template-columns: 20vw auto 15vw;
+    gap: .2rem;
+}
+
+header {
+    background-color: greenyellow;
+    grid-row: 1;
+    grid-column: span 3;
+}
+
+nav{
+    background-color: lightsalmon;
+    grid-row: 2;
+    grid-column: 1;
+}
+
+main{
+    background-color: lightslategrey;
+    grid-row: 2;
+    grid-column: 2;
+}
+
+aside{
+    background-color: mediumaquamarine;
+    grid-row: 2;
+    grid-column: 3;
+}
+
+footer{
+    background-color: peachpuff;
+    grid-row: 3;
+    grid-column: span 3;
+}
