@@ -78,18 +78,24 @@ function mouseEnterCallback(event) {
   console.log(event);
   let articleElement = event.target;
   // console.log(articleElement);
-  // console.log(articleElement.childNodes);
-  let figureElement = articleElement.childNodes[1];
-  // console.log(figureElement);
-  // while (figureElement.nodeType == 3) {
-  //   console.log(figureElement);
-  //   console.log(figureElement.nodeType);
-  //   figureElement = figureElement.nextElementSibling;
-  // }
-  // console.log(figureElement.childNodes);
-  let figCaptionElement = figureElement.childNodes[3];
-  // console.log(figCaptionElement);
+  let figureElement = find(articleElement, "FIGURE");
+  console.log(figureElement);
+  let figCaptionElement = find(figureElement, "FIGCAPTION");
+  console.log(figCaptionElement);
   let msg = figCaptionElement.textContent;
   alert(msg);
-  // alert(figureElement.lastChild.textContent);
 }
+
+function find(parent, nodeName) {
+  let children = parent.childNodes;
+  let child = null;
+  for (let i = 0; i < children.length; i++) {
+    child = children[i];
+    if (children[i].nodeName == nodeName.toUpperCase()) {
+      child = children[i];
+      break;
+    }
+  }
+  return child;
+}
+
