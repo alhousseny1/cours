@@ -58,5 +58,38 @@ function modeNuit() {
         
     }
 }
-
+}
+//evenements
+//récuperer l'élément section
+let teamElement = document.querySelector("#team");
+//ajouter un écouter d'évènement de type mouseover sur les enfants de teamElement
+//teamElement.childNodes
+let condition = true;
+let element = teamElement.firstChild;
+while (condition) {
+  element.addEventListener("mouseenter", mouseEnterCallback);
+  if (element.nextSibling) {
+    element = element.nextSibling;
+  } else {
+    condition = false;
+  }
+}
+function mouseEnterCallback(event) {
+  console.log(event);
+  let articleElement = event.target;
+  // console.log(articleElement);
+  // console.log(articleElement.childNodes);
+  let figureElement = articleElement.childNodes[1];
+  // console.log(figureElement);
+  // while (figureElement.nodeType == 3) {
+  //   console.log(figureElement);
+  //   console.log(figureElement.nodeType);
+  //   figureElement = figureElement.nextElementSibling;
+  // }
+  // console.log(figureElement.childNodes);
+  let figCaptionElement = figureElement.childNodes[3];
+  // console.log(figCaptionElement);
+  let msg = figCaptionElement.textContent;
+  alert(msg);
+  // alert(figureElement.lastChild.textContent);
 }
