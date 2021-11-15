@@ -66,6 +66,7 @@ let teamElement = document.querySelector("#team");
 //teamElement.childNodes
 let condition = true;
 let element = teamElement.firstChild;
+//boucle pour sortir les element
 while (condition) {
   element.addEventListener("mouseenter", mouseEnterCallback);
   if (element.nextSibling) {
@@ -73,7 +74,7 @@ while (condition) {
   } else {
     condition = false;
   }
-}
+}//fonction qui décrit ce que le passage de souris sur l'article fait element déclencheur
 function mouseEnterCallback(event) {
   console.log(event);
   let articleElement = event.target;
@@ -85,17 +86,15 @@ function mouseEnterCallback(event) {
   let msg = figCaptionElement.textContent;
   alert(msg);
 }
-
-function find(parent, nodeName) {
+//fonctionn pour "séparer" l'enfant du parent
+function find(parent, tagName) {
   let children = parent.childNodes;
   let child = null;
   for (let i = 0; i < children.length; i++) {
-    child = children[i];
-    if (children[i].nodeName == nodeName.toUpperCase()) {
+    if (children[i].nodeName.toUpperCase() == tagName.toUpperCase()) {
       child = children[i];
       break;
     }
   }
   return child;
 }
-
