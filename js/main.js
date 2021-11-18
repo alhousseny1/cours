@@ -17,7 +17,7 @@ function banniere() {
 function permute() {
   console.log("dans permute");
 
-  setInterval(banniere, 3000);//banniere -> nom de fonction, 3000->intervale
+  setInterval(banniere, 10000);//banniere -> nom de fonction, 3000->intervale
 }
 
 // let compteur = 1;
@@ -84,8 +84,18 @@ function mouseEnterCallback(event) {
   let figCaptionElement = find(figureElement, "FIGCAPTION");
   console.log(figCaptionElement);
   let msg = figCaptionElement.textContent;
-  alert(msg);
+  //alert(msg);
 }
+$(document).on("mouseenter",".member", mouseEnterCallback);
+//console.log(figcaptionElement);
+function mouseEnterCallback(event){
+  console.log(event);
+  let articleElement = event.target;
+  let figureElement = find(articleElement, "FIGURE");}
+let msg = figcaptionElement.textContent;//renvoi le contenu text de l'image
+let imgElement = find(figureElement, "IMG");
+let src = imgElement.src;
+window.open(src, "Image", "width=420,height=230,left=500,top=100");
 //fonctionn pour "séparer" l'enfant du parent
 function find(parent, tagName) {
   let children = parent.childNodes;

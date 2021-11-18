@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="favicon icon" href="pics/coffee-bean.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="js/form.js"></script>
-    <script src="js/ajax.js"></script>
+
 </head>
 
 <body class="container">
@@ -20,11 +19,17 @@
             <legend>Informations personnelles</legend>
             <div class="form-group">
                 <label for="fname">Prénom</label>
-                <input type="text" name="fname" id="fname" class="form-control" required placeholder="Saisir uniquement le prénom" /*pattern="[A-Za-z\u00c0-\u00ff\-' ]{1,25}" minlength="1" maxlength="25"*/>
+                <input type="text" name="fname" id="fname" class="form-control" required placeholder="Saisir uniquement le prénom" /*pattern="[A-Za-z\u00c0-\u00ff\-' ]{1,25}" minlength="1" maxlength="25"*/ aria-describedby="prenomFeedback">
+                <div id="prenomFeedback" class="invalid-feedback">
+                    prénom invalide.
+                  </div>
             </div>
             <div class="form-group">
                 <label for="">Date de naissance</label>
-                <input type="date" name="dob" id="dob" class="form-control">
+                <input type="date" name="dob" id="dob" class="form-control" aria-describedby="dobFeedback">
+                <div id="dobFeedback" class="invalid-feedback">
+                    Date de naissance invalide.
+                  </div>
             </div>
             <fieldset>
                 <legend>Sexe</legend>
@@ -44,27 +49,39 @@
             </fieldset>
             <div class="form-group">
                 <label for="mail1">E-mail</label>
-                <input type="email" name="mail" id="mail1">
+                <input type="email" name="mail" id="mail1" aria-describedby="mail1Feedback">
+                <div id="mail1Feedback" class="invalid-feedback" >
+                    e-mail invalide.
+                  </div>
             </div>
             <div class="form-group">
                 <label for="mail2">Courriel de confirmation</label>
-                <input type="email" name="mail" id="mail2">
+                <input type="email" name="mail" id="mail2" aria-describedby="mail2Feedback">
+                <div id="mail2Feedback" class="invalid-feedback" >
+                    e-mail de confirmation invalide.
+                  </div>
             </div>
             <div class="form-group">
                 <label for="region">Région</label>
-                <select name="region" id="region" class="form-control">
+                <select name="region" id="region" class="form-control" aria-describedby="regionFeedback">
                     <option value="0">---Choisir une région</option>
                 </select>
+                <div id="regionFeedback" class="invalid-feedback" >
+                    veuillez selectionnez une region.
+                  </div>
             </div>
             <div class="form-group">
                 <label for="departement">Département</label>
-                <select name="departement" id="departement" class="form-control">
+                <select name="departement" id="departement" class="form-control" aria-describedby="departementFeedback">
                     <option value="0">---Choisir un departement</option>
                 </select>
+                <div id="departementFeedback" class="invalid-feedback" >
+                    veuillez selectionnez un departement.
+                  </div>
             </div>
             <div class="from-group">
                 <label for="zip">Code postal</label>
-                <input type="number" name="zip" id="zip" min="010000" max="99999" value="75001" class="form-control">
+                <input type="number" name="zip" id="zip" min="010000" max="99999" value="75001" class="form-control" >
             </div>
             <div class="form-group">
                 <label for="city">Ville</label>
@@ -90,7 +107,7 @@
                 <label for="col">Couleur préférée</label>
                 <input type="color" name="col" id="col" class="form-control">
             </div>
-            <fieldset>
+            <fieldset >
                 <legend>Poste souhaités</legend>
                 <div class="form-check">
                     <input type="checkbox" name="jobs[]" id="job1" value="DJ" class="form-check-input">
@@ -118,7 +135,9 @@
             <input type="submit" value="Enregistrer dans ma base de donnée" class="btn btn-success">
             <input type="reset" value="Effacer tout le formulaire" class="btn btn-warning">
         </nav>
-    </form>
+    </form>  
+    <script src="js/ajax.js"></script>
+    <script src="js/form.js"></script>
 </body>
 
 </html>

@@ -32,13 +32,13 @@
 
         <nav id="caroussel">
         <span id="left">&#9664;</span>
-        <img src="pics/slide1.jpg" alt="" id="slide" name="caroussel" onload="permute()">
+        <img src="pics/slide1.jpg" alt="" id="slide" name="caroussel">
         <span id="right">&#9654;</span>
         </nav> 
 
         <section id="team">
             <!--TO DO: Génerer dynamiquement via JS et WS-->
-            <article class="member">
+            <!-- <article class="member">
                 <figure>
                     <img src="pics/luffy.jpg" alt="garcon">
                     <figcaption>Luffy</figcaption>
@@ -177,39 +177,81 @@
                 </figure>
                 <h4>BOSS</h4>
                 <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </article>
-        </section>
-        <div id="rgpd">
-            <h2>Avertissement 	&#x1F36A;</h2> <!--emojie cookie 	&#127850; en hex-->
-            <p></p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident quisquam cum amet! Cum tenetur veniam impedit natus omnis voluptatibus,
-            <button id="close" onclick="document.getElementById('rgpd').style.display='none'">Fermer</button>      
-        </div>
-    
+            </article>-->
+        </section> 
+        
         <div id="begin">
             <a href="#wrapper"> &#128070; </a>
         </div>
     </div>
-    <footer id="footer">
-        <ul class="footcontent">
-            <li>Nos engagements:</li>                
-            <li>manga tout neuf</li>
-            <li>2j apres le japon</li>
-        </ul>
-        <ul class="footcontent">
-            <li>Mention légales:</li>
-            <li>respect rgpd</li>
-            <li>cgv</li>
-            <li>sitemap</li>
-        </ul>
-        <ul class="footcontent">
-            <li>Nos partenaires:</li>
-            <li>manga plus</li>
-            <li>shonnen jump</li>
-            <li>eichiiro oda(le vrai)</li>
-        </ul>
-    </footer>
+    <div id="rgpd">
+        <h2>Avertissement 	&#x1F36A;</h2> <!--emojie cookie 	&#127850; en hex-->
+        <p></p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident quisquam cum amet! Cum tenetur veniam impedit natus omnis voluptatibus,
+        <button id="close" onclick="document.getElementById('rgpd').style.display='none'">Fermer</button>      
+    </div>
+    <div>
+        <footer id="footer">
+            <ul class="footcontent">
+                <li>Nos engagements:</li>                
+                <li>manga tout neuf</li>
+                <li>2j apres le japon</li>
+            </ul>
+            <ul class="footcontent">
+                <li>Mention légales:</li>
+                <li>respect rgpd</li>
+                <li>cgv</li>
+                <li>sitemap</li>
+            </ul>
+            <ul class="footcontent">
+                <li>Nos partenaires:</li>
+                <li>manga plus</li>
+                <li>shonnen jump</li>
+                <li>eichiiro oda(le vrai)</li>
+            </ul>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //créer les articles
+        $.get( "js/equipe.json", function( data ) {
+            let sectionTeam = $("#team"); //document.querySelector("#team")
+            console.log(data);
+            for (let index = 0; index < data.length; index++) {
+                const membre = data[index];
+                let article = $(`<article class="member">
+                    <figure>
+                        <img src="${membre.imgUrl}" alt="${membre.imgAlt}">
+                        <figcaption>${membre.prenom}</figcaption>
+                    </figure>
+                    <h4>${membre.poste}</h4>
+                    <p>${membre.resume}</p>
+                </article>`);
+                sectionTeam.append(article);
+            }
+        });
+        let rgpdCloseBtn = document.getElementById("close");
+        rgpdCloseBtn.addEventListener("click",function(){
+            document.getElementById("rgpd").style.display = 'none';
+            let dateExpriration = moment().add(7, 'days');
+            console.log(dateExpriration);
+            document.cookie = "rgpd=oui;expires=";
+        })
+        document.cookie = "name=toto";
+        console.log(document.cookie);
+        let cookiesTab = document.cookie.split(";");
+        console.log(cookiesTab);
+        for (let index = 0; index < cookiesTab.length; index++) {
+            const cookie = cookiesTab[index].trim();//RGPD OUI
+            if(cookie.startsWith("rgpd")){
+                document.getElementById("rgpd").style.display = 'none';
+                break;
+            }
+        }
+    </script>
+
+    
     <script src="js/main.js"></script>
-    <script src=""></script>
 </body>
 </html>
